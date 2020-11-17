@@ -1,0 +1,19 @@
+.box {
+  width: 500px;
+  border: 1px solid black;
+  padding: 50px;
+}
+
+input {
+  border: 1px solid #000000;
+  width: 546px;
+}
+
+.images {
+  width: 300px;
+  height: 300px;
+}
+
+span {
+  color: red;
+}

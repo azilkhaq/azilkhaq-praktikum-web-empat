@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form Validation</title>
+	<style>
+		span {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+    <h3>Jadwal Keberangkatan Pesawatan</h3>
+    <div class="form">
+        <form name="formValidation">
+            <div>
+                <label>Nama Pelanggan:</label>
+                <input type="text" name="username" id="username" autocomplete="off">
+                <span id="usernameValidate"></span>
+            </div><br>
+            <div>
+                <label>Email:</label>
+                <input type="email" name="email" id="email" autocomplete="off">
+                <span id="emailValidate"></span>
+            </div><br>
+            <div>
+                <label for="">Jam Keberangkatan:</label>
+                <input type="time" name="jam" id="jam" autocomplete="off">
+                <span id="jamValidate"></span>
+            </div><br>
+            <div>
+                <label for="">Tujuan Keberangkatan:</label>
+                <input type="text" name="tujuan" id="tujuan" autocomplete="off">
+                <span id="tujuanValidate"></span>
+            </div><br>
+            <div>
+                <label for="">Jumlah Tiket:</label>
+                <input type="text" name="tiket" id="tiket" autocomplete="off">
+                <span id="tiketValidate"></span>
+            </div>
+    </div>
+    </form>
+    <div>
+        <button class="tombol" onclick="validasi(this);">Submit</button>
+    </div>
+</body>
+
+<script>
+    function validasi() {
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        var jam = document.getElementById("jam").value;
+        var tujuan = document.getElementById("tujuan").value;
+        var tiket = document.getElementById("tiket").value;
+        
+
+        if (username == "") {
+            document.getElementById("usernameValidate").innerHTML = "Tidak boleh kosong!";
+        }
+        if (username.length > 30) {
+            document.getElementById("usernameValidate").innerHTML = "Lebih dari 30 huruf!";
+        }
+        if (email == "" ) {
+            document.getElementById("emailValidate").innerHTML = "Tidak boleh kosong!";
+        } 
+        if (!CheckEmailValid(email)) {
+            document.getElementById("emailValidate").innerHTML = "Email tidak valid!";
+        }
+        if (jam == "") {
+            document.getElementById("jamValidate").innerHTML = "Tidak boleh kosong!";
+        }
+        if (tujuan == "") {
+            document.getElementById("tujuanValidate").innerHTML = "Tidak boleh kosong!";
+        }
+        if (tiket == "") {
+            document.getElementById("tiketValidate").innerHTML = "Tidak boleh kosong!";
+        }
+        if (tiket < 1 || tiket > 10) {
+            document.getElementById("tiketValidate").innerHTML = "Tidak boleh lebih dari 10";
+
+        }
+    }
+
+    function CheckEmailValid (email) {
+        return /\S+@\S+\.\S+/.test(email)
+    }
+</script>
+
+</html>

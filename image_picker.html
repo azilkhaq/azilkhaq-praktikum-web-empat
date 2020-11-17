@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Picker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h3>Image Picker</h3>
+    <select onchange="displayImage(this);">
+        <option value="images/shopee.png">SHOPEE</option>
+        <option value="images/tokopedia.png">TOKOPEDIA</option>
+        <option value="images/bukalapak.png">BUKALAPAK</option>
+        <option value="images/lazada.png">LAZADA</option>
+        <option value="images/jdid.png">JD.ID</option>
+    </select><br><br>
+    <img id="images" class="images" src="images/shopee.png" alt="">
+</body>
+<script>
+    function displayImage(elem) {
+        var image = document.getElementById("images");
+        image.src = elem.value;
+    }
+</script>
